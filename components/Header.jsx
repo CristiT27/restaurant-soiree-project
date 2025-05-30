@@ -10,19 +10,19 @@ import { Button } from "./ui/button";
 
 function Header() {
   const [active, setActive] = useState(false);
+
   useEffect(() => {
-    const handleScroll = () => {
-      //detect scroll
-      setActive(window.scrollY > 100);
-    };
+    if (typeof window !== "undefined") {
+      const handleScroll = () => {
+        setActive(window.scrollY > 100);
+      };
 
-    //add event listener
-    window.addEventListener("scroll", handleScroll);
+      window.addEventListener("scroll", handleScroll);
 
-    //clear event listener
-    return () => {
-      window.removeEventListener("scroll", handleScroll);
-    };
+      return () => {
+        window.removeEventListener("scroll", handleScroll);
+      };
+    }
   }, []);
 
   return (
@@ -40,13 +40,13 @@ function Header() {
               src="/assets/hero/logo.svg"
               width={140}
               height={95}
-              alt=""
-            ></Image>
+              alt="Logo"
+            />
           </Link>
           {/* nav */}
           <Nav
             containerStyles="hidden xl:flex gap-x-12 text-white"
-            linkStyles={"capitalize"}
+            linkStyles="capitalize"
           />
           {/* btn */}
           <ScrollLink to="reservation" smooth={true}>
@@ -54,7 +54,6 @@ function Header() {
               Book a table
             </Button>
           </ScrollLink>
-
           {/* mobile nav */}
           <NavMobile
             containerStyles="xl:hidden"
