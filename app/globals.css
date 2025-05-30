@@ -1,42 +1,43 @@
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
-}
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+@layer base {
+  * {
+    @apply box-border;
   }
-}
+  body {
+    @apply font-poppins bg-body text-black tracking-[0.5px];
+  }
+  h1,
+  h2,
+  h3 {
+    @apply font-lora font-bold;
+  }
 
-html,
-body {
-  max-width: 100vw;
-  overflow-x: hidden;
-}
+  h1 {
+    @apply text-[62px] leading-[84px];
+  }
 
-body {
-  color: var(--foreground);
-  background: var(--background);
-  font-family: Arial, Helvetica, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-}
+  h2 {
+    @apply text-[32px] leading-[46px];
+  }
+  h3 {
+    @apply text-[20px] leading-[39px];
+  }
+  p {
+    @apply text-black/80 leading-8;
+  }
 
-* {
-  box-sizing: border-box;
-  padding: 0;
-  margin: 0;
-}
+  a {
+    @apply text-white hover:text-orange transition-all duration-300 cursor-pointer;
+  }
 
-a {
-  color: inherit;
-  text-decoration: none;
-}
+  label {
+    @apply text-white text-sm uppercase font-normal block mb-2;
+  }
 
-@media (prefers-color-scheme: dark) {
-  html {
-    color-scheme: dark;
+  .active {
+    @apply text-orange;
   }
 }
