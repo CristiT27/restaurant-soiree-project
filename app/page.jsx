@@ -6,8 +6,9 @@ import Header from "@/components/Header";
 import Menu from "@/components/Menu";
 import Reservation from "@/components/Reservation";
 import About from "@/components/About";
-import Map from "@/components/Map";
+
 import Footer from "@/components/Footer";
+import Contact from "@/components/Contact";
 
 export default function Home() {
   return (
@@ -17,7 +18,7 @@ export default function Home() {
       <Menu />
       <Reservation />
       <About />
-      <Map />
+      <Contact />
       <Footer />
       {/* <StyleGuide /> */}
       {/* <div className="h-[4000px]"></div> */}

@@ -12,17 +12,20 @@ function Header() {
   const [active, setActive] = useState(false);
 
   useEffect(() => {
-    if (typeof window !== "undefined") {
-      const handleScroll = () => {
+    const handleScroll = () => {
+      if (typeof window !== "undefined") {
+        // Detect scroll
         setActive(window.scrollY > 100);
-      };
+      }
+    };
 
-      window.addEventListener("scroll", handleScroll);
+    // Add event listener
+    window.addEventListener("scroll", handleScroll);
 
-      return () => {
-        window.removeEventListener("scroll", handleScroll);
-      };
-    }
+    // Clean up event listener
+    return () => {
+      window.removeEventListener("scroll", handleScroll);
+    };
   }, []);
 
   return (
@@ -32,7 +35,7 @@ function Header() {
       } fixed top-0 w-full z-50 left-0 right-0 transition-all duration-200`}
     >
       <div className="container mx-auto">
-        {/* logo,nav,btn */}
+        {/* logo, nav, btn */}
         <div className="flex items-center justify-between">
           {/* logo */}
           <Link href="/">
@@ -46,7 +49,7 @@ function Header() {
           {/* nav */}
           <Nav
             containerStyles="hidden xl:flex gap-x-12 text-white"
-            linkStyles="capitalize"
+            linkStyles={"capitalize"}
           />
           {/* btn */}
           <ScrollLink to="reservation" smooth={true}>
@@ -54,6 +57,7 @@ function Header() {
               Book a table
             </Button>
           </ScrollLink>
+
           {/* mobile nav */}
           <NavMobile
             containerStyles="xl:hidden"
