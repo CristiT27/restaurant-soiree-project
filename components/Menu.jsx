@@ -39,9 +39,9 @@ function Menu() {
           initial="hidden"
           whileInView={"show"}
           viewport={{ once: false, amount: 0.2 }}
-          className="max-w-[570px] mx-auto text-center xl:text-right"
+          className="p-[40px] max-w-[570px] mx-auto text-center xl:text-right"
         >
-          <h2 className=" mb-3">Favorite Menu</h2>
+          <h2 className="mb-3">Favorite Menu</h2>
           <Link
             href="/"
             className="text-green flex justify-center xl:justify-end items-center mb-16"
